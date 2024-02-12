@@ -48,3 +48,9 @@ align-items: center;
   .gotohome:hover .info{
     display: block;
   }
+
+  @media (max-width:768px) {
+    .gotohome{
+      left:2%;
+    }
+  }
