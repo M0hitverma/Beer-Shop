@@ -1,0 +1,21 @@
+.search-div{
+     background-color: #FFF7F1;
+     width: fit-content;
+     padding: 20px 40px;
+    
+     display: flex;
+     flex-direction: row;
+     gap:1rem;
+     border-radius: 10px;
+     border: 1px solid #FFE4C9;
+}
+.input-field{
+    background-color: transparent;
+    outline: none;
+    font-size: 1rem;
+    color: gray;
+    font-weight: 400;
+}
+.search-icon{
+    font-size: 1.5rem;
+}
