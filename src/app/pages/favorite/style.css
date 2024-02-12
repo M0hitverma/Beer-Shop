@@ -50,7 +50,12 @@ align-items: center;
   }
 
   @media (max-width:768px) {
+    .favorite-div{
+        padding:1rem;
+    }
     .gotohome{
-      left:2%;
+      left:1%;
+      top:50%;
+      transform: translateY(-50%);
     }
   }
