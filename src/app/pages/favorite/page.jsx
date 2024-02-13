@@ -11,9 +11,10 @@ export default function Favorite() {
   const [favorites, setFavorites] = useState([]);
 
 useEffect(() => {
-          
-     setFavorites([...JSON.parse(localStorage.getItem('favorites'))]);
-
+          const obj = JSON.parse(localStorage.getItem('favorites'));
+       if(obj){
+        setFavorites(obj);
+       }
 
 },[])
    
@@ -24,7 +25,7 @@ const removeFromFavorite= (id)=>{
       JSON.stringify(favorites.filter((favorite) => favorite.id !== id))
 
     );
-    toast("Added Successfully",{
+    toast("Removed Successfully",{
         type:'success',
         position:'top-right',
         autoClose: 2000,
@@ -36,18 +37,32 @@ const removeFromFavorite= (id)=>{
     <div className='favorite-div'>
         
         <div className='heading-div'>
-        <div className='gotohome'>
+
+          <div className='gotohome'>
             <Link href="/" className='linki'>
             <MdOutlineArrowBackIos />
              <div className='info'>Home</div>
-        </Link></div>
+           </Link>
+          </div>
         
-            <p>Favorite products</p></div>
+            <p>Favorite products</p>
+            
+        </div>
+
+    {favorites.length==0 ?
+            <div>No items</div>
+     :
+
         <div className='favorite-div-list'>
-      {favorites.map((beer,key)=>(
-       <Card key={key} beer={beer} toggleFavorite={removeFromFavorite}/>
-      ))}
+          {favorites.map((beer,key)=>(
+           <Card key={key} beer={beer} toggleFavorite={removeFromFavorite}/>
+          ))
+          }
       </div>
+
+     }
+
+
     </div>
   );
 }

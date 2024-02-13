@@ -57,5 +57,9 @@ align-items: center;
       left:1%;
       top:50%;
       transform: translateY(-50%);
+      font-size: 1.3rem;
+    }
+    .heading-div{
+      font-size: 1.3rem;
     }
   }

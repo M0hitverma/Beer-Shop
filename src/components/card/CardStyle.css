@@ -40,7 +40,10 @@ text-align: end;
     height: 60%;
     object-fit: contain;
     overflow: hidden;
-
+   transition: all ease-in-out 0.5s;
+}
+.image:hover{
+     transform: scale(1.1);
 }
 #beer-name{
    
@@ -73,6 +76,10 @@ text-align: end;
     font-size: 1.3rem;
 
     
+}
+.fav-btn:hover{
+
+    color: #f9b066;
 }
 
 

@@ -2,10 +2,12 @@
 "use client"
 import Link from 'next/link'
 import React, { useState,useEffect } from 'react'
+import Image from 'next/image'
 import Card from '../card/Card'
 import Search from '../search/Search'
 import { MdOutlineFavorite } from "react-icons/md";
 import { toast } from 'react-toastify';
+import cheers from '@/assets/cheers.png'
 
 import './MaincmpStyle.css'
 const Maincmp = () => {
@@ -35,6 +37,12 @@ const Maincmp = () => {
           setBeers([...beers, ...response]);
            }
           setLoading(false);
+        }).catch((error)=>{
+          toast("Invalid Request",{
+            type:'warning',
+            position:'top-right',
+            autoClose: 2000,
+          })
         })
 
     }
@@ -98,15 +106,22 @@ const Maincmp = () => {
   return (
     <div className='main-container'>
 
-     <div className='gotofavlist'>
+     
+       
+
+       <div className='search-container'>
+         <Search handleSearch={handleSearch}  /> 
+         <div className='beer-icon'>
+        <Image src={cheers} alt="" width={60} height={60}/>
+        </div>
+        <div className='gotofavlist'>
 
             <Link href="/pages/favorite" className='linki'>
             <div className='info text-gray-600'>Favorite List</div>
             < MdOutlineFavorite />
              
         </Link></div>
-       <div className='search-container'>
-         <Search handleSearch={handleSearch}  /> 
+      
          </div>
 
        <div className='feed-container'>
